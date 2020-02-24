@@ -8,17 +8,18 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
 import data.sql.SQLCommon;
-import data.sql.SQLPersonData;
+import data.sql.sqldata.SQLPersonData;
 import table.SQLTableModel;
 
-public class PersonHelperTab extends JPanel {	
+public class PersonHelperTab extends JPanel {
 	public JTable table;
 	public String identifier;
+	public SQLPersonData sqlData;
 	
 	public PersonHelperTab(String indentifier, SQLPersonData sqlData) {
 		this.table = new JTable();
 		this.identifier = indentifier;
-		
+		this.sqlData = sqlData;
 		
 		this.setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 		initalizeTableModel(sqlData);
@@ -37,20 +38,7 @@ public class PersonHelperTab extends JPanel {
 				"last_name"
 		};
 		
-		if (identifier.compareTo(SQLCommon.STUDENT) == 0) {
-			rs = sqlData.getStudentData();
-		
-		} else if (identifier.compareTo(SQLCommon.FACILITY) == 0) {
-			rs = sqlData.getFacilityData();
-			
-		} else if (identifier.compareTo(SQLCommon.STAFF) == 0) {
-			rs = sqlData.getStaffData();
-		
-		} else {
-			throw new IllegalArgumentException("Invalid identifier provided");
-		}
-
-		this.table.setModel(new SQLTableModel(rs, column, null));
+		this.table.setModel(new SQLTableModel(sqlData, column, null));
 	}
 	
 	public SQLTableModel getTableModel() {

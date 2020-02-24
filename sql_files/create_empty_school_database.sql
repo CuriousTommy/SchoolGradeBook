@@ -4,7 +4,7 @@ CREATE DATABASE schoolDatabase;
 
 CREATE TYPE Rank AS ENUM ('FACILITY','STAFF','STUDENT');
 CREATE TABLE Person (
-	id				BIGSERIAL		NOT NULL	PRIMARY KEY,
+	id				BIGSERIAL					PRIMARY KEY,
 	rank			Rank			NOT NULL,
 	first_name 		VARCHAR(100)	NOT NULL,
 	middle_name		VARCHAR(100),

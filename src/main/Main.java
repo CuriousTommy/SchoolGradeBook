@@ -3,7 +3,7 @@ import gui.PersonGUI;
 
 import java.sql.*;
 
-import data.sql.SQLPersonData;
+import data.sql.sqldata.SQLPersonData;
 
 public class Main {
 	static public void main(String[] args) throws SQLException, ClassNotFoundException {
