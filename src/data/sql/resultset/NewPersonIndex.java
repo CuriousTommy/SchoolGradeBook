@@ -6,7 +6,7 @@ import java.sql.Types;
 
 import data.sql.SQLCommon;
 
-public class NewPersonResultSet implements InterfaceSetValueToPreparedStatement {
+public class NewPersonIndex implements InterfaceSetValueToPreparedStatement {
 	static public final String RANK = "rank";
 	static public final String FIRST_NAME = "first_name";
 	static public final String MIDDLE_NAME = "middle_name";
@@ -16,7 +16,7 @@ public class NewPersonResultSet implements InterfaceSetValueToPreparedStatement 
 	private String middleName;
 	private String lastName;
 	
-	public NewPersonResultSet(
+	public NewPersonIndex(
 		String firstName,
 		String middleName,
 		String lastName
@@ -26,7 +26,7 @@ public class NewPersonResultSet implements InterfaceSetValueToPreparedStatement 
 		this.lastName = lastName;
 	}
 	
-	public NewPersonResultSet(
+	public NewPersonIndex(
 		String firstName,
 		String lastName
 	) {
@@ -34,7 +34,7 @@ public class NewPersonResultSet implements InterfaceSetValueToPreparedStatement 
 	}
 
 	@Override
-	public void setValueToResultSet(PreparedStatement rs) throws SQLException {
+	public void setValueToPreparedStatement(PreparedStatement rs) throws SQLException {
 		rs.setString(1, firstName);
 		rs.setString(3, lastName);
 		

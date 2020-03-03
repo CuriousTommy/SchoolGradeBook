@@ -1,3 +1,8 @@
+-- Term data
+insert into Term (term) values ('Spring 2019');
+insert into Term (term) values ('Summer 2019');
+insert into Term (term) values ('Fall 2020');
+
 -- Person data
 insert into Person (rank, first_name, middle_name, last_name) values ('FACILITY', 'Ferdy', 'Danièle', 'Damato');
 insert into Person (rank, first_name, middle_name, last_name) values ('STAFF', 'Salli', 'Célia', 'Allsop');
@@ -99,3 +104,32 @@ insert into Person (rank, first_name, middle_name, last_name) values ('FACILITY'
 insert into Person (rank, first_name, middle_name, last_name) values ('STAFF', 'Leonelle', 'Anaël', 'Gatus');
 insert into Person (rank, first_name, middle_name, last_name) values ('STUDENT', 'Porter', 'Josée', 'Krolak');
 insert into Person (rank, first_name, middle_name, last_name) values ('FACILITY', 'Jobina', null, 'Coppard');
+
+-- Class data
+insert into Class (name, room_number, period, term) values ('mauris', 'RF 6606-33 C', 7, 1);
+insert into Class (name, room_number, period, term) values ('congue eget', 'FL 9227-78 J', 3, 1);
+insert into Class (name, room_number, period, term) values ('ante', 'MH 8022-64 R', 1, 1);
+insert into Class (name, room_number, period, term) values ('congue', 'QG 2216-97 B', 5, 1);
+insert into Class (name, room_number, period, term) values ('amet', 'UG 9250-60 D', 6, 1);
+insert into Class (name, room_number, period, term) values ('magna', 'UZ 9682-82 M', 5, 1);
+insert into Class (name, room_number, period, term) values ('faucibus', 'DX 4146-27 W', 3, 2);
+insert into Class (name, room_number, period, term) values ('ultrices', 'EP 5198-40 R', 1, 3);
+insert into Class (name, room_number, period, term) values ('magna vulputate', 'BT 3417-90 Q', 2, 3);
+insert into Class (name, room_number, period, term) values ('placerat', 'TJ 5220-72 V', 4, 1);
+
+-- Class Person data
+insert into PersonClass (person_id, class_id) values (6, 8);
+insert into PersonClass (person_id, class_id) values (12, 3);
+insert into PersonClass (person_id, class_id) values (9, 1);
+insert into PersonClass (person_id, class_id) values (12, 2);
+insert into PersonClass (person_id, class_id) values (30, 8);
+insert into PersonClass (person_id, class_id) values (12, 2);
+insert into PersonClass (person_id, class_id) values (9, 7);
+insert into PersonClass (person_id, class_id) values (6, 2);
+insert into PersonClass (person_id, class_id) values (24, 1);
+insert into PersonClass (person_id, class_id) values (24, 8);
+insert into PersonClass (person_id, class_id) values (12, 6);
+insert into PersonClass (person_id, class_id) values (3, 10);
+insert into PersonClass (person_id, class_id) values (6, 4);
+insert into PersonClass (person_id, class_id) values (3, 4);
+insert into PersonClass (person_id, class_id) values (9, 9);

@@ -18,10 +18,10 @@ import java.util.List;
 import javax.swing.*;
 
 import data.sql.SQLCommon;
-import data.sql.sqldata.SQLPersonData;
+import data.sql.data.SQLPersonData;
 import gui.helper.PersonAddUI;
 import gui.helper.PersonHelperTab;
-import table.SQLTableModel;
+import gui.sqlmodel.SQLTableModel;
 
 public class PersonGUI extends JFrame implements ActionListener, WindowListener {
 	private static final long serialVersionUID = -3838057608060564412L;
@@ -48,9 +48,18 @@ public class PersonGUI extends JFrame implements ActionListener, WindowListener 
 	private void setupTabbedPanel(Connection conn) {
 		tabbedPanel = new JTabbedPane();
 		
-		tabbedPanel.addTab("Student", setupTabbedComponent(SQLCommon.STUDENT, conn));
-		tabbedPanel.addTab("Facility", setupTabbedComponent(SQLCommon.FACILITY, conn));
-		tabbedPanel.addTab("Staff", setupTabbedComponent(SQLCommon.STAFF, conn));
+		tabbedPanel.addTab(
+			"Student",
+			setupTabbedComponent(SQLCommon.Person.Rank.STUDENT, conn)
+		);
+		tabbedPanel.addTab(
+			"Facility",
+			setupTabbedComponent(SQLCommon.Person.Rank.FACILITY, conn)
+		);
+		tabbedPanel.addTab(
+			"Staff",
+			setupTabbedComponent(SQLCommon.Person.Rank.STAFF, conn)
+		);
 		
 		gbc.gridx = 0; gbc.gridy = 0;
 		gbc.weightx = 1; gbc.weighty = 1;

@@ -1,9 +1,7 @@
 package main;
-import gui.PersonGUI;
 
+import gui.MainGUI;
 import java.sql.*;
-
-import data.sql.sqldata.SQLPersonData;
 
 public class Main {
 	static public void main(String[] args) throws SQLException, ClassNotFoundException {
@@ -16,20 +14,6 @@ public class Main {
 		String username = args[1];
 		String password = args[2];
 		
-		try {
-			Class.forName("org.postgresql.Driver");
-			Connection con = DriverManager.getConnection(
-					address,
-					username, password
-			);
-			
-			new PersonGUI(con);
-			
-		} catch (SQLException e) {
-			e.printStackTrace();
-			
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		}
+		new MainGUI(address, username, password);
 	}
 }

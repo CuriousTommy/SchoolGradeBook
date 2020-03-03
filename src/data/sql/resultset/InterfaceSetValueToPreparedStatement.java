@@ -4,5 +4,5 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public interface InterfaceSetValueToPreparedStatement {
-	public void setValueToResultSet(PreparedStatement ps) throws SQLException;
+	public void setValueToPreparedStatement(PreparedStatement ps) throws SQLException;
 }

@@ -8,8 +8,8 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
 import data.sql.SQLCommon;
-import data.sql.sqldata.SQLPersonData;
-import table.SQLTableModel;
+import data.sql.data.SQLPersonData;
+import gui.sqlmodel.SQLTableModel;
 
 public class PersonHelperTab extends JPanel {
 	public JTable table;
@@ -30,12 +30,11 @@ public class PersonHelperTab extends JPanel {
 	}
 	
 	private void initalizeTableModel(SQLPersonData sqlData) {
-		ResultSet rs = null;
 		String[] column = { 
-				"id",
-				"first_name",
-				"middle_name",
-				"last_name"
+				SQLCommon.Person.ID,
+				SQLCommon.Person.FIRST_NAME,
+				SQLCommon.Person.MIDDLE_NAME,
+				SQLCommon.Person.LAST_NAME
 		};
 		
 		this.table.setModel(new SQLTableModel(sqlData, column, null));

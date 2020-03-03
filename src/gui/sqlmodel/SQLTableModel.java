@@ -1,4 +1,4 @@
-package table;
+package gui.sqlmodel;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -8,6 +8,7 @@ import java.util.Map;
 import javax.swing.table.AbstractTableModel;
 
 import data.sql.AbstractSQLData;
+import data.sql.item.Term;
 import data.sql.resultset.InterfaceSetValueToPreparedStatement;
 
 public class SQLTableModel extends AbstractTableModel {
@@ -29,9 +30,11 @@ public class SQLTableModel extends AbstractTableModel {
 	
 	@Override
 	public int getRowCount() {
+		ResultSet rs = sqlData.getResultSet();
+		
 		try {
-			sqlData.getResultSet().last();
-			return sqlData.getResultSet().getRow();
+			rs.last();
+			return rs.getRow();
 		} catch (SQLException e) {
 			e.printStackTrace();
 			return 0;
@@ -85,13 +88,18 @@ public class SQLTableModel extends AbstractTableModel {
 		
 		if (ps != null) {
 			try {
-				svtps.setValueToResultSet(ps);
+				svtps.setValueToPreparedStatement(ps);
 				ps.executeUpdate();
-				sqlData.freeResultSet();
+				sqlData.close();
 				this.fireTableDataChanged();
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
 		}
+	}
+
+	public void changeSQLData(AbstractSQLData sqlData) {
+		this.sqlData = sqlData;
+		
 	}
 }

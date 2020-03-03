@@ -33,8 +33,8 @@ public abstract class AbstractSQLData {
 		return rs;
 	}
 	
-	public void freeResultSet() {
-		if (ps != null) {
+	private void freeResultSet() {
+		if (rs != null) {
 			try {
 				rs.close();
 				rs = null;
@@ -42,6 +42,11 @@ public abstract class AbstractSQLData {
 				e.printStackTrace();
 			}
 		}
+	}
+	
+	protected void updateResultSet() {
+		freeResultSet();
+		getResultSet();
 	}
 	
 	public void close() {

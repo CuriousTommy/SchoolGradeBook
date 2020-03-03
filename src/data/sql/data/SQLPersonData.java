@@ -1,4 +1,4 @@
-package data.sql.sqldata;
+package data.sql.data;
 
 import java.sql.CallableStatement;
 import java.sql.Connection;
@@ -7,7 +7,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import data.sql.AbstractSQLData;
-import data.sql.SQLCommon;
 
 public class SQLPersonData extends AbstractSQLData {
 	String rank;
@@ -35,7 +34,9 @@ public class SQLPersonData extends AbstractSQLData {
 	protected PreparedStatement generatePreparedStatement() {
 		try {
 			return conn.prepareStatement(
-					generateSQLStatementForPrepareStatement()
+					generateSQLStatementForPrepareStatement(),
+					ResultSet.TYPE_SCROLL_INSENSITIVE,
+					ResultSet.CONCUR_UPDATABLE
 			);
 		} catch (SQLException e) {
 			e.printStackTrace();

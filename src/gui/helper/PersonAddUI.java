@@ -13,15 +13,12 @@ import java.awt.event.ActionListener;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JDialog;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JRootPane;
 import javax.swing.JTextField;
-import javax.swing.border.TitledBorder;
 
-import data.sql.resultset.NewPersonResultSet;
-import table.SQLTableModel;
+import data.sql.resultset.NewPersonIndex;
+import gui.sqlmodel.SQLTableModel;
 
 public class PersonAddUI extends JDialog implements ActionListener {
 	private static final long serialVersionUID = -5702228510239913992L;
@@ -124,7 +121,7 @@ public class PersonAddUI extends JDialog implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == buttonAdd) {
 			SQLTableModel tableModel = helperTab.getTableModel();
-			NewPersonResultSet nprs = new NewPersonResultSet(
+			NewPersonIndex nprs = new NewPersonIndex(
 				firstName.getText(),
 				!middleName.getText().contentEquals("") ? middleName.getText() : null,
 				lastName.getText()
